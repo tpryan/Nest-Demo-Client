@@ -1,0 +1,16 @@
+application: nestdemoclient-com
+version: 1
+runtime: php
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /exampleoauth.php
+  script: exampleoauth.php
+
+- url: /nest_auth.php
+  script: nest_auth.php  
