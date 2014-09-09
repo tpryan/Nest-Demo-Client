@@ -56,9 +56,6 @@
 			  ]
 			];
 
-			//$url = "http://localhost:10080/test.php";
-			//echo 'curl -v -L -X PUT "' . $url . '" -H "Content-Type: application/json" -d "'. $value_to_use .'"';
-
 			$context = stream_context_create($context);
 			$result = json_decode(file_get_contents($url, false, $context));
 
