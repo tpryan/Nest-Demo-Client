@@ -27,38 +27,52 @@ $devices_data = $nest->getDevices();
     <head>
     	<meta charset="UTF-8">
     	<title>Document</title>
-    </head>
-    <script type="text/javascript">
+    
+	    <script type="text/javascript">
 
-    	document.addEventListener('DOMContentLoaded', function() {
-   			[].forEach.call( document.querySelectorAll('input[name="away"]'), function(el) {
-			   el.addEventListener('click', processAwayChange, false);
- 			});
- 			[].forEach.call( document.querySelectorAll('input[type="text"]'), function(el) {
-			   el.addEventListener('change', processDeviceChange, false);
- 			});
-		});
-
-
-    	function processAwayChange() {
-    		var call = document.querySelector('input[name="away"]:checked').id;
-    		var req = new XMLHttpRequest();
-			req.open("GET", "api.php?call=" + call ,true);
-			req.send(null);
-
-    	}
-
-    	function processDeviceChange(e) {
-    		var call = e.target.name;
-    		call = call.replace("target-temp", e.target.value);
-    		var req = new XMLHttpRequest();
-			req.open("GET", "api.php?call=" + call ,true);
-			req.send(null);
-    	}
+	    	document.addEventListener('DOMContentLoaded', function() {
+	   			[].forEach.call( document.querySelectorAll('input[name="away"]'), function(el) {
+				   el.addEventListener('click', processAwayChange, false);
+	 			});
+	 			[].forEach.call( document.querySelectorAll('input[type="text"]'), function(el) {
+				   el.addEventListener('change', processDeviceChange, false);
+	 			});
+			});
 
 
-    </script>
-    <body>
+	    	function processAwayChange() {
+	    		var call = document.querySelector('input[name="away"]:checked').id;
+	    		var req = new XMLHttpRequest();
+				req.open("GET", "api.php?call=" + call ,true);
+				req.send(null);
+
+	    	}
+
+	    	function processDeviceChange(e) {
+	    		var call = e.target.name;
+	    		call = call.replace("target-temp", e.target.value);
+	    		var req = new XMLHttpRequest();
+				req.open("GET", "api.php?call=" + call ,true);
+				req.send(null);
+	    	}
+
+
+	    </script>
+	    <link href='http://fonts.googleapis.com/css?family=Lato|Oswald' rel='stylesheet' type='text/css'>
+	    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+
+		<style type="text/css">
+			h1{
+				font-family: 'Oswald', sans-serif;
+			}
+			body{
+				font-family: 'Lato', sans-serif;
+			}
+
+		</style>
+
+	</head>
+<body>
     	
 <?php 
 	
