@@ -14,3 +14,16 @@ handlers:
 
 - url: /nest_auth.php
   script: nest_auth.php  
+
+- url: /nest-client.php
+  script: nest-client.php  
+
+- url: /api.php
+  script: api.php 
+
+- url: /index.php
+  script: index.php 
+
+- url: /test.php
+  script: test.php     
+
