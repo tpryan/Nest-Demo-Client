@@ -5,7 +5,7 @@ require "lib/Nest/nest.php";
 $access_token = $_COOKIE['nest_token'];
 
 if (strlen($access_token) == 0) {
-	header("Location: " . $token_url[1] );
+	header("Location: " . $token_url );
 	die();
 }
 
