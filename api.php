@@ -10,9 +10,9 @@
 
 
 	if ($target == "structure") {
-		$result =  $nest->setStructureSetting($id, "away", $value);
+		$result =  $nest->setStructureAway($id, $value);
 	} else if ($target == "thermostat") {
-		$result =  $nest->setThermostatSetting($id, "target_temperature_f", $value);
+		$result =  $nest->setThermostatTargetTemperature($id, "f", $value);
 	}
 
 
