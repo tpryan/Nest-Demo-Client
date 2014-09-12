@@ -27,3 +27,8 @@ handlers:
 - url: /test.php
   script: test.php     
 
+- url: /debug.php
+  script: debug.php 
+
+- url: /index.html
+  script: index.html
