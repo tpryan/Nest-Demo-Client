@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
+
+	<script type="text/javascript">
+		var dataRef;
+		document.addEventListener('DOMContentLoaded', function() {
+			initNest();
+
+		});
+
+		function initNest(){
+			
+			var nest_token = getCookie('nest_token');
+			dataRef = new Firebase('wss://developer-api.nest.com');
+  			dataRef.auth(nest_token);
+  			dataRef.on("value", readThermostatTemp);
+
+		}
+
+		function getCookie(name) {
+		    var match = document.cookie.match(RegExp('(?:^|;\\s*)' + name + '=([^;]*)'));
+		    return match ? match[1] : null;
+		}
+
+		function processTempChange(e){
+			var device_id = e.target.name;
+			var target_value = parseInt(e.target.value);
+			console.log(device_id, target_value);
+			dataRef.child("devices/thermostats/" + device_id + "/target_temperature_f").set(target_value);
+		}
+
+		function processNestTempChange(e){
+			console.log(e.val());
+			var device = e.val();
+			var device_id = device.device_id;
+			var newvalue  = device.target_temperature_f;
+			var el = document.querySelector("#" + device_id);
+			if (el != null){
+				document.querySelector("#" + device_id).value = newvalue;
+			}
+		}
+
+
+		function readThermostatTemp(snapshot){
+			var nest_data = snapshot.val();
+			var thermostatsHTML = "";
+
+			for (var key in nest_data.devices.thermostats ){
+				if (nest_data.devices.thermostats.hasOwnProperty(key)){
+					var device = nest_data.devices.thermostats[key];
+					thermostatsHTML += "<h1>" + device.name + "</h1>" + "\n";
+					thermostatsHTML += '<label>Target Temp</label><input type="text"  id="' + device.device_id + '" name="' + device.device_id + '" value="' + device.target_temperature_f  + '"><br />' + "\n";
+					dataRef.child("devices/thermostats/" + device.device_id).on("value",processNestTempChange);
+				}
+			}
+
+			document.querySelector("#devices").innerHTML = thermostatsHTML;
+
+			[].forEach.call( document.querySelectorAll('input[type="text"]'), function(el) {
+			   el.addEventListener('change', processTempChange, false);
+
+ 			});
+		}
+
+
+
+	</script>
+
+</head>
+<body>
+	
+<div id="devices">
+
+</div>	
+
+
+
+
+</body>
+</html>
