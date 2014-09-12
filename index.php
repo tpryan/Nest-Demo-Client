@@ -18,8 +18,6 @@ $devices_data = $nest->getDevices();
 
 
 
-
-
 ?>
 
 <!DOCTYPE html>
