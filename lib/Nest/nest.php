@@ -156,7 +156,7 @@
 	     * @param any $value 
 	     * @return string
 	     */
-	    function setStructureSetting($structure_id, $setting, $value) {
+	    protected function setStructureSetting($structure_id, $setting, $value) {
 	    	$auth_path = "/?auth=" . $this->access_token;
 	    	$path = '/structures/' . $structure_id . "/" . $setting . $auth_path;
 	    	$url =  $this->base_url . $path;
