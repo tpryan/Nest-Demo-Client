@@ -3,4 +3,12 @@ h1{
 }
 body{
 	font-family: 'Lato', sans-serif;
+	font-size: 40px;
+}
+
+
+input {
+	height: 50px;
+	font-size: 40px;
+
 }
