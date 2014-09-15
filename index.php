@@ -58,16 +58,7 @@ $devices_data = $nest->getDevices();
 	    </script>
 	    <link href='http://fonts.googleapis.com/css?family=Lato|Oswald' rel='stylesheet' type='text/css'>
 	    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-
-		<style type="text/css">
-			h1{
-				font-family: 'Oswald', sans-serif;
-			}
-			body{
-				font-family: 'Lato', sans-serif;
-			}
-
-		</style>
+		<link rel="stylesheet" href="/assets/css/main.css" type="text/css" />
 
 	</head>
 <body>

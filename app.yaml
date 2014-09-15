@@ -5,6 +5,14 @@ api_version: 1
 threadsafe: yes
 
 handlers:
+
+
+- url: /assets/
+  static_dir: assets/
+  expiration: "30d"
+  http_headers:
+    Vary: Accept-Encoding
+
 - url: /favicon\.ico
   static_files: favicon.ico
   upload: favicon\.ico
