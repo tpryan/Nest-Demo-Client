@@ -137,6 +137,14 @@
 	    	return $this->setStructureSetting($structure_id, $setting, $mode);
 	    }
 
+	     /**
+	     * Sets structure to home or away. 
+	     * @param string $structure_id unique id for a given structure
+	     * @param string $trip_id a unique value set by developer for tracking trips. 
+	     * @param string $eta_start_range The begining of the window by which we estimate user will be home. 
+	     * @param string $eta_end_range The end of the window by which we estimate user will be home. 
+	     * @return string
+	     */
 	    function setStructureETA($structure_id, $trip_id, $eta_start_range, $eta_end_range){
 	    	$eta_start = date("c",strtotime($eta_start_range));
 			$eta_end = date("c",strtotime($eta_end_range));
@@ -209,6 +217,7 @@
 				$response_headers = $this->processHeaders($http_response_header);
 				$status_code = $response_headers['status_code'];
 				$url =  $response_headers['location'];
+				//TODO: Gotta trap other error codes. 
 				if ($status_code == 400){
 					break;
 				}
