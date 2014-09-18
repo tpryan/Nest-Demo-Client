@@ -40,3 +40,6 @@ handlers:
 
 - url: /index.html
   script: index.html
+
+- url: /test/simulator/endpoint.php
+  script: test/simulator/endpoint.php
