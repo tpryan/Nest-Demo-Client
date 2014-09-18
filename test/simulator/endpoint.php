@@ -23,7 +23,7 @@
 	} 
 
 
-	//TODO Find out http status codes for successes and failures.
+	//TODO: Find out http status codes for successes and failures.
 	echo(json_encode($result));
 
 ?>

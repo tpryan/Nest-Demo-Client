@@ -2,6 +2,8 @@
 
 	class Nest {
 
+		//TODO: change these urls to be setable so we can mock apis that can test 
+		//without hitting Nest rate limits. 
 		protected $access_token;
 		private $base_url = "https://developer-api.nest.com";
 		private $auth_url = "https://api.home.nest.com/oauth2/access_token";
